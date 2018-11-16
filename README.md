@@ -1,5 +1,21 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Sample of CRUD App
+_**This is small sample of React App made with Chartjs and using Coinapi.io API**_
+
+### Getting Started:
+First you need to install all npm packages -> `npm i`. 
+
+After all packages will be installed run this -> `npm run start` 
+and app will automatically run at [http://localhost:3000/](http://localhost:3000/).
+
+After that You should run Json server at port 4000 -> `json-server --watch db.json --port 4000`.
+
+This app not fully covered by tests considering the time amount that was provided.
+Also, the call result to Coinapi.io was changed to mocked data considering that Coinapi.io provides limited amount of calls to their api at free subscription.
+
+---
+
 ## Available Scripts
 
 In the project directory, you can run:
