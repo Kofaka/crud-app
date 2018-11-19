@@ -2,7 +2,7 @@ import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme'
 
-import MainPageView from './MainPageView';
+import MainPageView from '../components/MainPageView';
 
 const setup = (propsOverrides) => {
   const props = Object.assign({

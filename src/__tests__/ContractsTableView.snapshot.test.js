@@ -3,7 +3,7 @@ import expect from 'expect';
 import { mount, shallow } from 'enzyme'
 import renderer from 'react-test-renderer';
 
-import ContractsTableView from './ContractsTableView';
+import ContractsTableView from '../components/ContractsTableView';
 
 const setup = (propsOverrides) => {
   const props = Object.assign({

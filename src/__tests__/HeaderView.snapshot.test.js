@@ -2,7 +2,7 @@ import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme'
 
-import HeaderView from './HeaderView';
+import HeaderView from '../components/HeaderView';
 
 const setup = (propsOverrides) => {
   const props = Object.assign({}, propsOverrides);
