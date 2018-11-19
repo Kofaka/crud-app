@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { setContractsRequest, setCoinApiRequest } from '../modules/contracts/actions';
+import { setContractsRequest } from '../modules/contracts/actions';
+import { setCoinApiRequest } from '../modules/coinApi/actions';
 import { getContractsData, getCoinApiData } from '../modules/reducer';
 
 import MainPageView from '../components/MainPageView';
@@ -141,7 +142,7 @@ export class MainPage extends Component {
         "bid_size": 124
       }
     ];
-    return <MainPageView chartData={this.getChartData(mockedCoinApiData)} contracts={contractsData} />;
+    return <MainPageView chartData={this.getChartData(mockedCoinApiData)} contracts={contractsData}/>;
   }
 }
 
