@@ -3,7 +3,7 @@
   "author": "Daria Babakova",
   "version": "0.1.0",
   "private": true,
-  "home": "https://kofaka.github.io/crud-app/",
+  "homepage": "https://kofaka.github.io/crud-app",
   "engines": {
     "npm": "6.4.1",
     "node": "8.12.0"
