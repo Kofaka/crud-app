@@ -11,7 +11,7 @@ const contracts = handleActions(
     [fetchContractsRequest]: (state, { payload }) => {
       return {
         ...state,
-        contractsData: payload.data,
+        contractsData: payload.data.contracts,
       };
     },
     [fetchCoinApiRequest]: (state, { payload }) => {

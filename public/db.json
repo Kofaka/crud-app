@@ -1,0 +1,85 @@
+{
+  "contracts": [
+    {
+      "user": {
+        "name": "Jon",
+        "surname": "Doe"
+      },
+      "amountInUsd": "902389",
+      "currency": "ETH",
+      "date": "2018-04-23"
+    },
+    {
+      "user": {
+        "name": "Roolf",
+        "surname": "Backer"
+      },
+      "amountInUsd": "4029846",
+      "currency": "ETH",
+      "date": "2018-05-23"
+    },
+    {
+      "user": {
+        "name": "Andy",
+        "surname": "Tornov"
+      },
+      "amountInUsd": "4501827",
+      "currency": "ETH",
+      "date": "2018-05-03"
+    },
+    {
+      "user": {
+        "name": "Eduard",
+        "surname": "Stirtz"
+      },
+      "amountInUsd": "3400",
+      "currency": "ETH",
+      "date": "2018-10-03"
+    },
+    {
+      "user": {
+        "name": "Cory",
+        "surname": "Tory"
+      },
+      "amountInUsd": "34900",
+      "currency": "ETH",
+      "date": "2018-11-13"
+    },
+    {
+      "user": {
+        "name": "Yugi",
+        "surname": "Wertyujk"
+      },
+      "amountInUsd": "128900",
+      "currency": "ETH",
+      "date": "2018-01-17"
+    },
+    {
+      "user": {
+        "name": "Bandji",
+        "surname": "Streko"
+      },
+      "amountInUsd": "237645",
+      "currency": "ETH",
+      "date": "2017-12-27"
+    },
+    {
+      "user": {
+        "name": "Tosin",
+        "surname": "Abasi"
+      },
+      "amountInUsd": "3987",
+      "currency": "ETH",
+      "date": "2018-09-20"
+    },
+    {
+      "user": {
+        "name": "Dan",
+        "surname": "Abramov"
+      },
+      "amountInUsd": "12345",
+      "currency": "ETH",
+      "date": "2018-10-29"
+    }
+  ]
+}
