@@ -14,7 +14,7 @@ export class MainPage extends Component {
   render() {
     const { contracts, coinApiData = [] } = this.props;
 
-    const foo = [
+    const mockedCoinApiData = [
       {
         "symbol_id": "BITSTAMP_SPOT_BTC_USD",
         "time_exchange": "2013-09-28T22:40:50.0000000Z",
@@ -88,7 +88,7 @@ export class MainPage extends Component {
         "bid_size": 124
       }
     ];
-    const sortedData = foo.sort((a, b) => (
+    const sortedData = mockedCoinApiData.sort((a, b) => (
       (a.time_coinapi < b.time_coinapi) ? -1 : (a.time_coinapi > b.time_coinapi) ? 1 : 0
     ));
     const monthNames = [
