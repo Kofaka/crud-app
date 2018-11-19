@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { db } from '../firebase';
 import { setContractsRequest } from '../modules/contracts/actions';
 import { setCoinApiRequest } from '../modules/coinApi/actions';
 import { getContractsData, getCoinApiData } from '../modules/reducer';
@@ -64,6 +65,26 @@ export class MainPage extends Component {
     };
 
     return chartData;
+  };
+
+  fooHandler = (data) => {
+    let fooData = {
+      id: '7',
+      userName: 'ASDgadsv',
+      userSurname: 'sdADvef-fo',
+      amountInUsd: '111',
+      currency: 'ETH',
+      date: '2018-11-19',
+    };
+    console.log(fooData);
+
+    db.doCreateContract(fooData)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  };
+
+  barHandler = () => {
+    db.onceGetContract().then(snapshot => console.log(snapshot, snapshot.val()))
   };
 
   render() {
@@ -142,7 +163,14 @@ export class MainPage extends Component {
         "bid_size": 124
       }
     ];
-    return <MainPageView chartData={this.getChartData(mockedCoinApiData)} contracts={contractsData}/>;
+    return (
+      <div>
+        <button onClick={() => this.fooHandler()}>doCreateContract</button>
+        {' '}
+        <button onClick={() => this.barHandler()}>onceGetContract</button>
+        <MainPageView chartData={this.getChartData(mockedCoinApiData)} contracts={contractsData}/>
+      </div>
+    );
   }
 }
 

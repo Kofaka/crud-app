@@ -13,6 +13,7 @@
     "bootstrap": "^4.1.3",
     "chart.js": "^2.7.3",
     "expect": "^23.6.0",
+    "firebase": "^5.5.8",
     "gh-pages": "^2.0.1",
     "react": "^16.6.3",
     "react-chartjs-2": "^2.7.4",
