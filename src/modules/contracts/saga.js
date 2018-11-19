@@ -1,7 +1,7 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
-import {JSON_SERVER_URI, COINAPI_URI} from '../../constants/constants'
+import {CONTRACTS_DB_URI, COINAPI_URI} from '../../constants/constants'
 
 import {
   setContractsRequest,
@@ -13,7 +13,7 @@ import {
 function* requestContractsWatcher() {
   try {
     const data = yield call(() => {
-      return axios.get(`${JSON_SERVER_URI}/contracts`);
+      return axios.get(CONTRACTS_DB_URI);
     });
     yield put(fetchContractsRequest(data));
   } catch (error) {
