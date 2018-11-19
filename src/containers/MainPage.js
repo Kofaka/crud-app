@@ -6,7 +6,7 @@ import { setContractsRequest, setCoinApiRequest } from '../modules/contracts/act
 import MainPageView from '../components/MainPageView';
 
 export class MainPage extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.setContractsRequest();
     this.props.setCoinApiRequest();
   }
