@@ -1,7 +1,7 @@
 {
   "main.css": "/crud-app/static/css/main.2487067a.chunk.css",
-  "main.js": "/crud-app/static/js/main.3f823131.chunk.js",
-  "main.js.map": "/crud-app/static/js/main.3f823131.chunk.js.map",
+  "main.js": "/crud-app/static/js/main.96f0fe3e.chunk.js",
+  "main.js.map": "/crud-app/static/js/main.96f0fe3e.chunk.js.map",
   "static/css/1.f7251599.chunk.css": "/crud-app/static/css/1.f7251599.chunk.css",
   "static/js/1.db49f90b.chunk.js": "/crud-app/static/js/1.db49f90b.chunk.js",
   "static/js/1.db49f90b.chunk.js.map": "/crud-app/static/js/1.db49f90b.chunk.js.map",
@@ -11,6 +11,6 @@
   "static/media/logo.svg": "/crud-app/static/media/logo.5d5d9eef.svg",
   "static/css/main.2487067a.chunk.css.map": "/crud-app/static/css/main.2487067a.chunk.css.map",
   "index.html": "/crud-app/index.html",
-  "precache-manifest.737341589b64e2c09d83bcc87fdb9536.js": "/crud-app/precache-manifest.737341589b64e2c09d83bcc87fdb9536.js",
+  "precache-manifest.3c43f9f574c173dd4510594a263ab3ab.js": "/crud-app/precache-manifest.3c43f9f574c173dd4510594a263ab3ab.js",
   "service-worker.js": "/crud-app/service-worker.js"
 }
