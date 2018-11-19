@@ -3,15 +3,21 @@ import { Row, Col, Table } from 'reactstrap';
 
 import './ContractsTableView.css';
 
-const getTableInfoRows = (data) => (data.length) && data.map((item, index) => (
-  <tr key={`${index}_${item.user.name}_${item.user.surname}`}>
-    <th scope="row">{index}</th>
-    <td>{item.user.name} {item.user.surname}</td>
-    <td>{item.amountInUsd}</td>
-    <td>{item.currency}</td>
-    <td>{item.date}</td>
-  </tr>
-));
+const getTableInfoRows = (data = []) => {
+  let rows = [];
+  (data.length) && data.map((item, index) => (
+    rows.push(
+      <tr key={`${index}_${item.user.name}_${item.user.surname}`}>
+        <th scope="row">{index}</th>
+        <td>{item.user.name} {item.user.surname}</td>
+        <td>{item.amountInUsd}</td>
+        <td>{item.currency}</td>
+        <td>{item.date}</td>
+      </tr>
+    )
+  ));
+  return rows;
+};
 
 const ContractsTable = ({ contracts }) => (
   <>
@@ -33,9 +39,7 @@ const ContractsTable = ({ contracts }) => (
         </tr>
         </thead>
         <tbody>
-
         {getTableInfoRows(contracts)}
-
         </tbody>
       </Table>
     </Col>
