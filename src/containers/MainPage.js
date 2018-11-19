@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { setContractsRequest, setCoinApiRequest } from '../modules/contracts/actions';
+import { getContractsData, getCoinApiData } from '../modules/reducer';
 
 import MainPageView from '../components/MainPageView';
 
@@ -11,9 +12,61 @@ export class MainPage extends Component {
     this.props.setCoinApiRequest();
   }
 
-  render() {
-    const { contracts, coinApiData = [] } = this.props;
+  getChartData = (data = []) => {
+    const monthNames = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December' ];
 
+    const sortedData = data.sort((a, b) => (
+      (a.time_coinapi < b.time_coinapi) ? -1 : (a.time_coinapi > b.time_coinapi) ? 1 : 0
+    ));
+
+    const chartLabels = sortedData.map(data => monthNames[ new Date(data.time_coinapi).getMonth() ]);
+    const chartDatasetsData = sortedData.map(data => data.bid_price);
+    const chartDatasetsLabel = (data.asset_id_base) ? `The rates for ${data.asset_id_base} currency` : `The rates chart`;
+
+    const chartData = {
+      labels: chartLabels,
+      datasets: [
+        {
+          label: chartDatasetsLabel,
+          fill: false,
+          lineTension: 0.1,
+          backgroundColor: 'rgba(97, 218, 251,0.4)',
+          borderColor: 'rgba(97, 218, 251,1)',
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgba(97, 218, 251,1)',
+          pointBackgroundColor: '#fff',
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: 'rgba(97, 218, 251,1)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointHoverBorderWidth: 2,
+          pointRadius: 1,
+          pointHitRadius: 10,
+          data: chartDatasetsData,
+        }
+      ]
+    };
+
+    return chartData;
+  };
+
+  render() {
+    const { contractsData } = this.props;
     const mockedCoinApiData = [
       {
         "symbol_id": "BITSTAMP_SPOT_BTC_USD",
@@ -88,61 +141,14 @@ export class MainPage extends Component {
         "bid_size": 124
       }
     ];
-    const sortedData = mockedCoinApiData.sort((a, b) => (
-      (a.time_coinapi < b.time_coinapi) ? -1 : (a.time_coinapi > b.time_coinapi) ? 1 : 0
-    ));
-    const monthNames = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December' ];
-    const chartLabels = sortedData.map(data => monthNames[ new Date(data.time_coinapi).getMonth() ]);
-    const chartDatasetsData = sortedData.map(data => data.bid_price);
-    const chartDatasetsLabel = (coinApiData.asset_id_base) ? `The rates for ${coinApiData.asset_id_base} currency` : `The rates chart`;
-
-    const chartData = {
-      labels: chartLabels,
-      datasets: [
-        {
-          label: chartDatasetsLabel,
-          fill: false,
-          lineTension: 0.1,
-          backgroundColor: 'rgba(97, 218, 251,0.4)',
-          borderColor: 'rgba(97, 218, 251,1)',
-          borderCapStyle: 'butt',
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: 'miter',
-          pointBorderColor: 'rgba(97, 218, 251,1)',
-          pointBackgroundColor: '#fff',
-          pointBorderWidth: 1,
-          pointHoverRadius: 5,
-          pointHoverBackgroundColor: 'rgba(97, 218, 251,1)',
-          pointHoverBorderColor: 'rgba(220,220,220,1)',
-          pointHoverBorderWidth: 2,
-          pointRadius: 1,
-          pointHitRadius: 10,
-          data: chartDatasetsData,
-        }
-      ]
-    };
-
-    return <MainPageView chartData={chartData} contracts={contracts} />;
+    return <MainPageView chartData={this.getChartData(mockedCoinApiData)} contracts={contractsData} />;
   }
 }
 
 export default connect(
   state => ({
-    contracts: state.contracts.contractsData,
-    coinApiData: state.contracts.coinApiData,
+    contractsData: getContractsData(state),
+    coinApiData: getCoinApiData(state),
   }),
   { setContractsRequest, setCoinApiRequest }
 )(MainPage);

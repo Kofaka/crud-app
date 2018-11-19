@@ -6,7 +6,7 @@ const defaultState = {
   coinApiData: {},
 };
 
-const contracts = handleActions(
+const contractsReducer = handleActions(
   {
     [fetchContractsRequest]: (state, { payload }) => {
       return {
@@ -24,4 +24,8 @@ const contracts = handleActions(
   defaultState,
 );
 
-export default contracts;
+// Private Selectors
+export const getContractsData = state => state.contractsReducer.contractsData;
+export const getCoinApiData = state => state.contractsReducer.coinApiData;
+
+export default contractsReducer;
