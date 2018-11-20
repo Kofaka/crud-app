@@ -6,6 +6,8 @@ import {
   fetchContractsRequest,
   setContractsNewEntry,
   fetchContractsNewEntry,
+  setContractsDeleteEntry,
+  fetchContractsDeleteEntry,
 } from './actions';
 
 function* requestContractsWatcher() {
@@ -32,4 +34,17 @@ function* addContractsNewEntryWatcher(newEntryData = {}) {
 
 export function* contractsNewEntryWatcher() {
   yield takeEvery(setContractsNewEntry, addContractsNewEntryWatcher);
+}
+
+function* deleteContractEntryWatcher(dataToDelete = '') {
+  try {
+    const data = yield call(() => db.doDeleteContract(dataToDelete.payload));
+    yield put(fetchContractsDeleteEntry(data));
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export function* contractsDeleteEntryWatcher() {
+  yield takeEvery(setContractsDeleteEntry, deleteContractEntryWatcher);
 }

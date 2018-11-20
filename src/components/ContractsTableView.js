@@ -1,25 +1,35 @@
 import React from 'react';
-import { Row, Col, Table } from 'reactstrap';
+import { Row, Col, Table, Button } from 'reactstrap';
 
 import './ContractsTableView.css';
 
-const getTableInfoRows = (data = []) => {
+const getTableInfoRows = (data = {}, handler) => {
   let rows = [];
-  (data.length) && data.map((item, index) => (
+  (Object.keys(data).length) && Object.keys(data).map((item, index) => (
     rows.push(
-      <tr key={`${index}_${item.user.name}_${item.user.surname}`}>
-        <th scope="row">{index}</th>
-        <td>{item.user.name} {item.user.surname}</td>
-        <td>{item.amountInUsd}</td>
-        <td>{item.currency}</td>
-        <td>{item.date}</td>
+      <tr key={`${index}_${data[ item ].user.name}_${data[ item ].user.surname}`}>
+        {console.dir(data[ item ])}
+        <th scope="row">{data[ item ].id}</th>
+        <td>{data[ item ].user.name} {data[ item ].user.surname}</td>
+        <td>{data[ item ].amountInUsd}</td>
+        <td>{data[ item ].currency}</td>
+        <td>{data[ item ].date}</td>
+        <td>
+          <Button
+            color="info"
+            className="w-100"
+            onClick={() => handler(data[ item ].id)}
+          >
+            Delete contract
+          </Button>
+        </td>
       </tr>
     )
   ));
   return rows;
 };
 
-const ContractsTable = ({ contracts }) => (
+const ContractsTableView = ({ contracts, deleteHandler }) => (
   <>
   <Row>
     <Col>
@@ -39,7 +49,7 @@ const ContractsTable = ({ contracts }) => (
         </tr>
         </thead>
         <tbody>
-        {getTableInfoRows(contracts)}
+        {getTableInfoRows(contracts, deleteHandler)}
         </tbody>
       </Table>
     </Col>
@@ -47,4 +57,4 @@ const ContractsTable = ({ contracts }) => (
   </>
 );
 
-export default ContractsTable;
+export default ContractsTableView;
