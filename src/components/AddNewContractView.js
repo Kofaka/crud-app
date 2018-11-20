@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 const AddNewContractView = ({ submitHandler, inputChangeHandler }) => {
   return (
