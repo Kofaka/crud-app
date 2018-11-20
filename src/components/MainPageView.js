@@ -4,6 +4,7 @@ import { Line } from 'react-chartjs-2';
 
 import HeaderView from './HeaderView';
 import ContractsTableView from './ContractsTableView';
+import AddNewContract from '../containers/AddNewContract';
 
 const MainPageView = ({ chartData, contracts }) => (
   <>
@@ -16,6 +17,8 @@ const MainPageView = ({ chartData, contracts }) => (
           <Line data={chartData}/>
         </Col>
       </Row>
+
+      <AddNewContract />
 
       <ContractsTableView contracts={contracts}/>
     </Container>

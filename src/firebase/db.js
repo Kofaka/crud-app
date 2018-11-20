@@ -2,7 +2,6 @@ import { db } from './firebase';
 
 export const doCreateContract = ({ id, userName, userSurname, amountInUsd, currency, date }) =>
   db.ref(`contracts/${id}`).set({
-    id,
     user: {
       name: userName,
       surname: userSurname
