@@ -4,6 +4,8 @@ import { db } from '../../firebase';
 import {
   setContractsRequest,
   fetchContractsRequest,
+  setContractsNewEntry,
+  fetchContractsNewEntry,
 } from './actions';
 
 function* requestContractsWatcher() {
@@ -17,4 +19,17 @@ function* requestContractsWatcher() {
 
 export function* contractsWatcher() {
   yield takeEvery(setContractsRequest, requestContractsWatcher);
+}
+
+function* addContractsNewEntryWatcher(newEntryData = {}) {
+  try {
+    const data = yield call(() => db.doCreateContract(newEntryData.payload));
+    yield put(fetchContractsNewEntry(data));
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export function* contractsNewEntryWatcher() {
+  yield takeEvery(setContractsNewEntry, addContractsNewEntryWatcher);
 }

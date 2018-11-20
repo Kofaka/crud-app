@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { db } from '../firebase';
+import { setContractsNewEntry } from '../modules/contracts/actions';
 
 import AddNewContractView from '../components/AddNewContractView';
 
@@ -24,7 +25,7 @@ export class AddNewContract extends Component {
   addNewContractHandler = e => {
     e.preventDefault();
     const id = Math.round(Math.random() * 1000);
-    db.doCreateContract({ ...this.state, id });
+    this.props.setContractsNewEntry({ ...this.state, id });
   };
 
   render() {
@@ -37,4 +38,7 @@ export class AddNewContract extends Component {
   }
 }
 
-export default AddNewContract;
+export default connect(
+  null,
+  { setContractsNewEntry }
+)(AddNewContract);

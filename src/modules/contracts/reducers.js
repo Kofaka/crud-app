@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import { fetchContractsRequest } from './actions';
+import { fetchContractsRequest, fetchContractsNewEntry } from './actions';
 
 const defaultState = {
   contractsData: {},
@@ -11,6 +11,12 @@ const contractsReducer = handleActions(
       return {
         ...state,
         contractsData: payload,
+      };
+    },
+    [fetchContractsNewEntry]: (state, payload) => {
+      return {
+        ...state,
+        payload,
       };
     },
   },
