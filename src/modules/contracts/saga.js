@@ -9,10 +9,11 @@ import {
   setContractsDeleteEntry,
   fetchContractsDeleteEntry,
 } from './actions';
+import { getContractsFromFirebase } from '../../helpers'
 
 function* requestContractsWatcher() {
   try {
-    const data = yield call(() => db.onceGetContract().then(snapshot => snapshot.val()));
+    const data = yield call(() => getContractsFromFirebase());
     yield put(fetchContractsRequest(data));
   } catch (error) {
     console.error(error);
@@ -25,8 +26,12 @@ export function* contractsWatcher() {
 
 function* addContractsNewEntryWatcher(newEntryData = {}) {
   try {
-    const data = yield call(() => db.doCreateContract(newEntryData.payload));
-    yield put(fetchContractsNewEntry(data));
+    const dataToAdd = yield call(() => db.doCreateContract(newEntryData.payload));
+    const dataUpdated = yield call(() => getContractsFromFirebase());
+
+    yield put(fetchContractsNewEntry(dataToAdd));
+    yield put(fetchContractsRequest(dataUpdated));
+
   } catch (error) {
     console.error(error);
   }
@@ -39,7 +44,11 @@ export function* contractsNewEntryWatcher() {
 function* deleteContractEntryWatcher(dataToDelete = '') {
   try {
     const data = yield call(() => db.doDeleteContract(dataToDelete.payload));
+    const dataUpdated = yield call(() => getContractsFromFirebase());
+
     yield put(fetchContractsDeleteEntry(data));
+    yield put(fetchContractsRequest(dataUpdated));
+
   } catch (error) {
     console.error(error);
   }
