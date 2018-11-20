@@ -8,7 +8,6 @@ const getTableInfoRows = (data = {}, handler) => {
   (Object.keys(data).length) && Object.keys(data).map((item, index) => (
     rows.push(
       <tr key={`${index}_${data[ item ].user.name}_${data[ item ].user.surname}`}>
-        {console.dir(data[ item ])}
         <th scope="row">{data[ item ].id}</th>
         <td>{data[ item ].user.name} {data[ item ].user.surname}</td>
         <td>{data[ item ].amountInUsd}</td>
