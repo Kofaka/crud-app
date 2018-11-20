@@ -1,7 +1,5 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
-import axios from 'axios';
-
-import {CONTRACTS_DB_URI} from '../../constants/constants'
+import { db } from '../../firebase';
 
 import {
   setContractsRequest,
@@ -10,9 +8,7 @@ import {
 
 function* requestContractsWatcher() {
   try {
-    const data = yield call(() => {
-      return axios.get(CONTRACTS_DB_URI);
-    });
+    const data = yield call(() => db.onceGetContract().then(snapshot => snapshot.val()));
     yield put(fetchContractsRequest(data));
   } catch (error) {
     console.error(error);

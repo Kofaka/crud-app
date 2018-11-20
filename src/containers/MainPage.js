@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { db } from '../firebase';
-import { setContractsRequest } from '../modules/contracts/actions';
 import { setCoinApiRequest } from '../modules/coinApi/actions';
-import { getContractsData, getCoinApiData } from '../modules/reducer';
+import { getCoinApiData } from '../modules/reducer';
 
 import MainPageView from '../components/MainPageView';
 
 export class MainPage extends Component {
   componentDidMount() {
-    this.props.setContractsRequest();
     this.props.setCoinApiRequest();
   }
 
@@ -67,28 +64,7 @@ export class MainPage extends Component {
     return chartData;
   };
 
-  fooHandler = (data) => {
-    let fooData = {
-      id: '7',
-      userName: 'ASDgadsv',
-      userSurname: 'sdADvef-fo',
-      amountInUsd: '111',
-      currency: 'ETH',
-      date: '2018-11-19',
-    };
-    console.log(fooData);
-
-    db.doCreateContract(fooData)
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
-  };
-
-  barHandler = () => {
-    db.onceGetContract().then(snapshot => console.log(snapshot, snapshot.val()))
-  };
-
   render() {
-    const { contractsData } = this.props;
     const mockedCoinApiData = [
       {
         "symbol_id": "BITSTAMP_SPOT_BTC_USD",
@@ -165,10 +141,7 @@ export class MainPage extends Component {
     ];
     return (
       <div>
-        <button onClick={() => this.fooHandler()}>doCreateContract</button>
-        {' '}
-        <button onClick={() => this.barHandler()}>onceGetContract</button>
-        <MainPageView chartData={this.getChartData(mockedCoinApiData)} contracts={contractsData}/>
+        <MainPageView chartData={this.getChartData(mockedCoinApiData)}/>
       </div>
     );
   }
@@ -176,8 +149,7 @@ export class MainPage extends Component {
 
 export default connect(
   state => ({
-    contractsData: getContractsData(state),
     coinApiData: getCoinApiData(state),
   }),
-  { setContractsRequest, setCoinApiRequest }
+  { setCoinApiRequest }
 )(MainPage);

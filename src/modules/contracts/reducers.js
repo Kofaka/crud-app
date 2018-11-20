@@ -10,7 +10,7 @@ const contractsReducer = handleActions(
     [fetchContractsRequest]: (state, { payload }) => {
       return {
         ...state,
-        contractsData: payload.data.contracts,
+        contractsData: payload,
       };
     },
   },

@@ -3,16 +3,16 @@ import { Container, Row, Col } from 'reactstrap';
 import { Line } from 'react-chartjs-2';
 
 import HeaderView from './HeaderView';
-import ContractsTableView from './ContractsTableView';
+import ContractsTable from '../containers/ContractsTable';
 import AddNewContract from '../containers/AddNewContract';
 
-const MainPageView = ({ chartData, contracts }) => (
+const MainPageView = ({ chartData }) => (
   <>
   <HeaderView />
 
   <main className="mt-4">
     <Container>
-      <Row>
+      <Row className="mb-4">
         <Col>
           <Line data={chartData}/>
         </Col>
@@ -20,7 +20,7 @@ const MainPageView = ({ chartData, contracts }) => (
 
       <AddNewContract />
 
-      <ContractsTableView contracts={contracts}/>
+      <ContractsTable />
     </Container>
   </main>
   </>
