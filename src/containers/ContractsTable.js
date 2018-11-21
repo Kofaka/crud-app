@@ -11,11 +11,16 @@ export class ContractsTable extends Component {
     this.props.setContractsRequest();
   }
 
+  deleteHandler = (itemId) => {
+    const confirmDelete = window.confirm(`Are You sure that you want to delete contract #${itemId}?`);
+    confirmDelete && this.props.setContractsDeleteEntry(itemId);
+  };
+
   render() {
     return (
       <ContractsTableView
         contracts={this.props.contractsData}
-        deleteHandler={id => this.props.setContractsDeleteEntry(id)}
+        deleteHandler={this.deleteHandler}
       />
     );
   }
