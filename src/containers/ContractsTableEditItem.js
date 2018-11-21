@@ -79,7 +79,6 @@ export class ContractsTableEditItem extends Component {
     return (
       <ContractsTableEditItemView
         data={data}
-        buttonLabel={this.props.buttonLabel}
         modalIsOpen={this.state.modalIsOpen}
         toggle={this.toggleModalWindow}
         modalBackdrop={this.modalBackdrop}

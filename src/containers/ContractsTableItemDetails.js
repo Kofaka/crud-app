@@ -18,7 +18,6 @@ class ContractsTableItemDetails extends Component {
     return (
       <ContractsTableItemDetailsView
         contract={this.props.contract}
-        buttonLabel={this.props.buttonLabel}
         toggle={this.toggle}
         modalIsOpen={this.state.modal}
         modalBackdrop={this.state.backdrop}

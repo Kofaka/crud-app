@@ -10,12 +10,13 @@ import {
   FormGroup,
   Label,
   Input,
-  Button
+  Button,
 } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 
 const ContractsTableEditItemView = ({
   data,
-  buttonLabel,
   modalIsOpen,
   toggle,
   modalBackdrop,
@@ -44,7 +45,15 @@ const ContractsTableEditItemView = ({
 
   return (
     <>
-    <Button color="info" onClick={toggle}>{buttonLabel}</Button>
+    <Button
+      color="white"
+      onClick={toggle}
+      className="p-0 button_as-icon"
+      tag="a"
+      title="Edit contract"
+    >
+      <FontAwesomeIcon icon={faPencilAlt} size="lg" />
+    </Button>
 
     <Modal
       isOpen={modalIsOpen}

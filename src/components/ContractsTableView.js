@@ -1,12 +1,14 @@
 import React from 'react';
 import { Row, Col, Table, Button } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 import ContractsTableItemDetails from '../containers/ContractsTableItemDetails';
 import ContractsTableEditItem from '../containers/ContractsTableEditItem';
 
 import './ContractsTableView.css';
 
-const getTableInfoRows = (data = {}, handler) => {
+const getTableInfoRows = (data = {}, deleteHandler) => {
   let rows = [];
   (Object.keys(data).length) && Object.keys(data).map((item, index) => (
     rows.push(
@@ -17,24 +19,20 @@ const getTableInfoRows = (data = {}, handler) => {
         <td>{data[ item ].currency}</td>
         <td>{data[ item ].date}</td>
         <td>
-          <ContractsTableItemDetails
-            contract={data[ item ]}
-            buttonLabel="Show details"
-          />
+          <ContractsTableItemDetails contract={data[ item ]}/>
         </td>
         <td>
-          <ContractsTableEditItem
-            contract={data[ item ]}
-            buttonLabel="Edit Contract"
-          />
+          <ContractsTableEditItem contract={data[ item ]}/>
         </td>
         <td>
           <Button
-            color="info"
-            className="w-100"
-            onClick={() => handler(data[ item ].id)}
+            color="white"
+            onClick={() => deleteHandler(data[ item ].id)}
+            className="p-0 button_as-icon"
+            tag="a"
+            title="Delete contract"
           >
-            Delete contract
+            <FontAwesomeIcon icon={faTrashAlt} size="lg"/>
           </Button>
         </td>
       </tr>

@@ -1,3 +1,9 @@
 .contracts-table__header {
   color: #61dafb;
 }
+
+.btn.button_as-icon {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+}
