@@ -63,6 +63,7 @@ export class ContractsTableEditItem extends Component {
     e.preventDefault();
     const { id, name, surname, amountInUsd, currency, date } = this.state;
     this.props.setContractsUpdateEntry({ id, name, surname, amountInUsd, currency, date });
+    this.toggleModalWindow();
   };
 
   ifDisabledSubmit = () => (
