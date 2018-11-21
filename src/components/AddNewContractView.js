@@ -66,7 +66,7 @@ const AddNewContractView = ({ submitHandler, inputChangeHandler, disableSubmit }
               <FormGroup>
                 <Label for="date">Date</Label>
                 <Input
-                  type="text"
+                  type="date"
                   name="date"
                   id="date"
                   placeholder="2018-04-23"

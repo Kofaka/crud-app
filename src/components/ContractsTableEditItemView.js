@@ -73,7 +73,7 @@ const ContractsTableEditItemView = ({
               {getFormGroup('User Surname', 'text', 'surname', 'Surname', data.surname)}
               {getFormGroup('Amount in USD', 'number', 'amountInUsd', '0', data.amountInUsd)}
               {getFormGroup('Currency', 'text', 'currency', '0', data.currency)}
-              {getFormGroup('Date','text', 'date', '2018-04-23', data.date)}
+              {getFormGroup('Date','date', 'date', '2018-04-23', data.date)}
             </Col>
           </Row>
         </ModalBody>

@@ -7,3 +7,27 @@
   border: none;
   color: #fff;
 }
+
+input[type="date"]::-webkit-datetime-edit {
+  padding: 0em;
+  color: inherit;
+}
+
+input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+  background: transparent;
+  font-size: 0.75em;
+}
+
+input[type="date"]::-webkit-datetime-edit-text {
+  padding: 0;
+  font-size: 0.75em;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  padding: 0;
+}
