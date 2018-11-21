@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col, Table, Button } from 'reactstrap';
 
 import './ContractsTableView.css';
+import ContractsTableItemDetails from '../containers/ContractsTableItemDetails';
 
 const getTableInfoRows = (data = {}, handler) => {
   let rows = [];
@@ -21,6 +22,12 @@ const getTableInfoRows = (data = {}, handler) => {
           >
             Delete contract
           </Button>
+        </td>
+        <td>
+          <ContractsTableItemDetails
+            contract={data[ item ]}
+            buttonLabel="Show details"
+          />
         </td>
       </tr>
     )
