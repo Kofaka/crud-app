@@ -1,8 +1,10 @@
 import React from 'react';
 import { Row, Col, Table, Button } from 'reactstrap';
 
-import './ContractsTableView.css';
 import ContractsTableItemDetails from '../containers/ContractsTableItemDetails';
+import ContractsTableEditItem from '../containers/ContractsTableEditItem';
+
+import './ContractsTableView.css';
 
 const getTableInfoRows = (data = {}, handler) => {
   let rows = [];
@@ -15,6 +17,18 @@ const getTableInfoRows = (data = {}, handler) => {
         <td>{data[ item ].currency}</td>
         <td>{data[ item ].date}</td>
         <td>
+          <ContractsTableItemDetails
+            contract={data[ item ]}
+            buttonLabel="Show details"
+          />
+        </td>
+        <td>
+          <ContractsTableEditItem
+            contract={data[ item ]}
+            buttonLabel="Edit Contract"
+          />
+        </td>
+        <td>
           <Button
             color="info"
             className="w-100"
@@ -22,12 +36,6 @@ const getTableInfoRows = (data = {}, handler) => {
           >
             Delete contract
           </Button>
-        </td>
-        <td>
-          <ContractsTableItemDetails
-            contract={data[ item ]}
-            buttonLabel="Show details"
-          />
         </td>
       </tr>
     )

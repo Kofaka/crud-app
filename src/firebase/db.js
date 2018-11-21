@@ -15,3 +15,15 @@ export const doCreateContract = ({ id, name, surname, amountInUsd, currency, dat
 export const onceGetContract = () => db.ref('contracts').once('value');
 
 export const doDeleteContract = (id) => db.ref(`contracts/${id}`).remove();
+
+export const doUpdateContract = ({ id, name, surname, amountInUsd, currency, date }) =>
+  db.ref(`contracts/${id}`).update({
+    id,
+    user: {
+      name,
+      surname
+    },
+    amountInUsd,
+    currency,
+    date
+  });

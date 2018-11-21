@@ -1,10 +1,17 @@
 import { handleActions } from 'redux-actions';
-import { fetchContractsRequest, fetchContractsNewEntry, fetchContractsDeleteEntry } from './actions';
+
+import {
+  fetchContractsRequest,
+  fetchContractsNewEntry,
+  fetchContractsDeleteEntry,
+  fetchContractsUpdateEntry
+} from './actions';
 
 const defaultState = {
   contractsData: {},
   contractsDataNewEntry: {},
   contractsDataToDeleteId: '',
+  contractsDataToUpdate: {},
 };
 
 const contractsReducer = handleActions(
@@ -25,6 +32,12 @@ const contractsReducer = handleActions(
       return {
         ...state,
         contractsDataToDeleteId: payload,
+      };
+    },
+    [fetchContractsUpdateEntry]: (state, payload) => {
+      return {
+        ...state,
+        contractsDataToUpdate: payload,
       };
     },
   },

@@ -1,6 +1,11 @@
 import { all } from 'redux-saga/effects';
 
-import { contractsWatcher, contractsNewEntryWatcher, contractsDeleteEntryWatcher } from './contracts/saga';
+import {
+  contractsWatcher,
+  contractsNewEntryWatcher,
+  contractsDeleteEntryWatcher,
+  contractsUpdateEntryWatcher,
+} from './contracts/saga';
 import { coinApiWatcher } from './coinApi/saga';
 
 export default function* rootSaga() {
@@ -8,6 +13,7 @@ export default function* rootSaga() {
     contractsWatcher(),
     contractsNewEntryWatcher(),
     contractsDeleteEntryWatcher(),
+    contractsUpdateEntryWatcher(),
     coinApiWatcher(),
   ]);
 }

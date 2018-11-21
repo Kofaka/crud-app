@@ -8,8 +8,11 @@ import {
   fetchContractsNewEntry,
   setContractsDeleteEntry,
   fetchContractsDeleteEntry,
+  setContractsUpdateEntry,
+  fetchContractsUpdateEntry,
 } from './actions';
 import { getContractsFromFirebase } from '../../helpers'
+
 
 function* requestContractsWatcher() {
   try {
@@ -23,6 +26,7 @@ function* requestContractsWatcher() {
 export function* contractsWatcher() {
   yield takeEvery(setContractsRequest, requestContractsWatcher);
 }
+
 
 function* addContractsNewEntryWatcher(newEntryData = {}) {
   try {
@@ -41,6 +45,7 @@ export function* contractsNewEntryWatcher() {
   yield takeEvery(setContractsNewEntry, addContractsNewEntryWatcher);
 }
 
+
 function* deleteContractEntryWatcher(dataToDelete = '') {
   try {
     const data = yield call(() => db.doDeleteContract(dataToDelete.payload));
@@ -56,4 +61,22 @@ function* deleteContractEntryWatcher(dataToDelete = '') {
 
 export function* contractsDeleteEntryWatcher() {
   yield takeEvery(setContractsDeleteEntry, deleteContractEntryWatcher);
+}
+
+
+function* updateContractEntryWatcher(dataToUpdateEntry = {}) {
+  try {
+    const data = yield call(() => db.doUpdateContract(dataToUpdateEntry.payload));
+    const dataUpdated = yield call(() => getContractsFromFirebase());
+
+    yield put(fetchContractsUpdateEntry(data));
+    yield put(fetchContractsRequest(dataUpdated));
+
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export function* contractsUpdateEntryWatcher() {
+  yield takeEvery(setContractsUpdateEntry, updateContractEntryWatcher);
 }
