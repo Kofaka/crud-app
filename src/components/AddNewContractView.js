@@ -16,11 +16,11 @@ const AddNewContractView = ({ submitHandler, inputChangeHandler, disableSubmit }
           <Row>
             <Col md={2}>
               <FormGroup>
-                <Label for="userName">User name</Label>
+                <Label for="name">User name</Label>
                 <Input
                   type="text"
-                  name="userName"
-                  id="userName"
+                  name="name"
+                  id="name"
                   placeholder="Name"
                   onChange={inputChangeHandler}
                 />
@@ -28,11 +28,11 @@ const AddNewContractView = ({ submitHandler, inputChangeHandler, disableSubmit }
             </Col>
             <Col md={2}>
               <FormGroup>
-                <Label for="userSurname">User Surname</Label>
+                <Label for="surname">User Surname</Label>
                 <Input
                   type="text"
-                  name="userSurname"
-                  id="userSurname"
+                  name="surname"
+                  id="surname"
                   placeholder="Surname"
                   onChange={inputChangeHandler}
                 />

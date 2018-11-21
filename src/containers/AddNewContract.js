@@ -7,8 +7,8 @@ import AddNewContractView from '../components/AddNewContractView';
 
 export class AddNewContract extends Component {
   state = {
-    userName: '',
-    userSurname: '',
+    name: '',
+    surname: '',
     amountInUsd: '',
     currency: '',
     date: '',
@@ -29,8 +29,8 @@ export class AddNewContract extends Component {
   };
 
   ifDisabledSubmit = () => (
-    !this.state.userName.length ||
-    !this.state.userSurname.length ||
+    !this.state.name.length ||
+    !this.state.surname.length ||
     !this.state.amountInUsd.length ||
     !this.state.currency.length ||
     !this.state.date.length
