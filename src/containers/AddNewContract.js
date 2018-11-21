@@ -28,11 +28,20 @@ export class AddNewContract extends Component {
     this.props.setContractsNewEntry({ ...this.state, id });
   };
 
+  ifDisabledSubmit = () => (
+    !this.state.userName.length ||
+    !this.state.userSurname.length ||
+    !this.state.amountInUsd.length ||
+    !this.state.currency.length ||
+    !this.state.date.length
+  );
+
   render() {
     return (
       <AddNewContractView
         submitHandler={this.addNewContractHandler}
         inputChangeHandler={this.inputChangeHandler}
+        disableSubmit={this.ifDisabledSubmit()}
       />
     );
   }

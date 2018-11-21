@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
-const AddNewContractView = ({ submitHandler, inputChangeHandler }) => {
+const AddNewContractView = ({ submitHandler, inputChangeHandler, disableSubmit }) => {
   return (
     <>
     <Row>
@@ -42,7 +42,7 @@ const AddNewContractView = ({ submitHandler, inputChangeHandler }) => {
               <FormGroup>
                 <Label for="amountInUsd">Amount in USD</Label>
                 <Input
-                  type="text"
+                  type="number"
                   name="amountInUsd"
                   id="amountInUsd"
                   placeholder="0"
@@ -79,6 +79,7 @@ const AddNewContractView = ({ submitHandler, inputChangeHandler }) => {
                 color="info"
                 className="w-100 mb-3"
                 type="submit"
+                disabled={disableSubmit}
               >
                 Add contract
               </Button>
