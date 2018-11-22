@@ -82,7 +82,7 @@ export class ContractsTableEditItem extends Component {
         data={data}
         modalIsOpen={this.state.modalIsOpen}
         toggle={this.toggleModalWindow}
-        modalBackdrop={this.modalBackdrop}
+        modalBackdrop={this.state.modalBackdrop}
         cancelHandler={this.cancelEditContractHandler}
         submitHandler={this.editContractHandler}
         inputChangeHandler={this.inputChangeHandler}

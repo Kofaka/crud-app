@@ -1,14 +1,13 @@
 import React from 'react';
-import { Row, Col, Table, Button } from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { Row, Col, Table } from 'reactstrap';
 
 import ContractsTableItemDetails from '../containers/ContractsTableItemDetails';
 import ContractsTableEditItem from '../containers/ContractsTableEditItem';
+import DeleteContract from '../containers/DeleteContract';
 
 import './ContractsTableView.css';
 
-const getTableInfoRows = (data = {}, deleteHandler) => {
+const getTableInfoRows = (data = {}) => {
   let rows = [];
   (Object.keys(data).length) && Object.keys(data).map((item, index) => (
     rows.push(
@@ -25,15 +24,7 @@ const getTableInfoRows = (data = {}, deleteHandler) => {
           <ContractsTableEditItem contract={data[ item ]}/>
         </td>
         <td>
-          <Button
-            color="white"
-            onClick={() => deleteHandler(data[ item ].id)}
-            className="p-0 button_as-icon"
-            tag="a"
-            title="Delete contract"
-          >
-            <FontAwesomeIcon icon={faTrashAlt} size="lg"/>
-          </Button>
+          <DeleteContract itemId={data[ item ].id}/>
         </td>
       </tr>
     )
