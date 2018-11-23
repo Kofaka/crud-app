@@ -3,15 +3,21 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Row, Col } from 're
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 
-const DetailsContractView = ({
+export default ({
   contract,
   toggle,
   modalIsOpen,
   modalBackdrop,
   buttonHandler,
 }) => {
-  if (contract && Object.keys(contract).length) {
-    return (
+  const getDetailsItem = (title, value) => (
+    <Row>
+      <Col md={5} className="text-uppercase font-weight-bold text-right">`${title}:`</Col>
+      <Col md={7} className="text-left">{value}</Col>
+    </Row>
+  );
+
+  return (contract && Object.keys(contract).length) ? (
       <>
       <Button
         color="white"
@@ -20,7 +26,7 @@ const DetailsContractView = ({
         tag="a"
         title="View contract details"
       >
-        <FontAwesomeIcon icon={faEye} size="lg" />
+        <FontAwesomeIcon icon={faEye} size="lg"/>
       </Button>
 
       <Modal
@@ -33,22 +39,10 @@ const DetailsContractView = ({
         </ModalHeader>
 
         <ModalBody>
-          <Row>
-            <Col md={5} className="text-uppercase font-weight-bold text-right">User name:</Col>
-            <Col md={7} className="text-left">{contract.user.name} {contract.user.surname}</Col>
-          </Row>
-          <Row>
-            <Col md={5} className="text-uppercase font-weight-bold text-right">Amount in USD:</Col>
-            <Col md={7} className="text-left">{contract.amountInUsd}</Col>
-          </Row>
-          <Row>
-            <Col md={5} className="text-uppercase font-weight-bold text-right">Currency:</Col>
-            <Col md={7} className="text-left">{contract.currency}</Col>
-          </Row>
-          <Row>
-            <Col md={5} className="text-uppercase font-weight-bold text-right">Date:</Col>
-            <Col md={7} className="text-left">{contract.date}</Col>
-          </Row>
+          {getDetailsItem('User name', `${contract.user.name} ${contract.user.surname}`)}
+          {getDetailsItem('Amount in USD', contract.amountInUsd)}
+          {getDetailsItem('Currency', contract.currency)}
+          {getDetailsItem('Date', contract.date)}
         </ModalBody>
 
         <ModalFooter>
@@ -56,10 +50,5 @@ const DetailsContractView = ({
         </ModalFooter>
       </Modal>
       </>
-    );
-  }
-
-  return null;
+    ) : null;
 };
-
-export default DetailsContractView;
