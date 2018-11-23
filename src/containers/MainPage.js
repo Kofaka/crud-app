@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { setCoinApiRequest } from '../modules/coinApi/actions';
-import { getCoinApiData } from '../modules/reducer';
+import { getCoinApiData } from '../modules/selectors';
 
 import MainPageView from '../components/MainPageView';
 
@@ -24,13 +24,14 @@ export class MainPage extends Component {
       'September',
       'October',
       'November',
-      'December' ];
+      'December',
+    ];
 
     const sortedData = data.sort((a, b) => (
       (a.time_coinapi < b.time_coinapi) ? -1 : (a.time_coinapi > b.time_coinapi) ? 1 : 0
     ));
 
-    const chartLabels = sortedData.map(data => monthNames[ new Date(data.time_coinapi).getMonth() ]);
+    const chartLabels = sortedData.map(data => monthNames[new Date(data.time_coinapi).getMonth()]);
     const chartDatasetsData = sortedData.map(data => data.bid_price);
     const chartDatasetsLabel = (data.asset_id_base) ? `The rates for ${data.asset_id_base} currency` : `The rates chart`;
 

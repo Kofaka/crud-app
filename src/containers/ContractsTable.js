@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { setContractsRequest } from '../modules/contracts/actions';
-import { getContractsData } from '../modules/reducer';
+import { getContractsData } from '../modules/selectors';
 
 import ContractsTableView from '../components/ContractsTableView';
 

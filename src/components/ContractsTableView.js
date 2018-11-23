@@ -11,20 +11,20 @@ const getTableInfoRows = (data = {}) => {
   let rows = [];
   (Object.keys(data).length) && Object.keys(data).map((item, index) => (
     rows.push(
-      <tr key={`${index}_${data[ item ].user.name}_${data[ item ].user.surname}`}>
-        <th scope="row">{data[ item ].id}</th>
-        <td>{data[ item ].user.name} {data[ item ].user.surname}</td>
-        <td>{data[ item ].amountInUsd}</td>
-        <td>{data[ item ].currency}</td>
-        <td>{data[ item ].date}</td>
+      <tr key={`${index}_${data[item].user.name}_${data[item].user.surname}`}>
+        <th scope="row">{data[item].id}</th>
+        <td>{data[item].user.name} {data[item].user.surname}</td>
+        <td>{data[item].amountInUsd}</td>
+        <td>{data[item].currency}</td>
+        <td>{data[item].date}</td>
         <td>
-          <ContractsTableItemDetails contract={data[ item ]}/>
+          <ContractsTableItemDetails contract={data[item]}/>
         </td>
         <td>
-          <ContractsTableEditItem contract={data[ item ]}/>
+          <ContractsTableEditItem contract={data[item]}/>
         </td>
         <td>
-          <DeleteContract itemId={data[ item ].id}/>
+          <DeleteContract itemId={data[item].id}/>
         </td>
       </tr>
     )
