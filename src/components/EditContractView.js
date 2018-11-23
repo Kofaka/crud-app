@@ -15,7 +15,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 
-const ContractsTableEditItemView = ({
+const EditContractView = ({
   data,
   modalIsOpen,
   toggle,
@@ -88,4 +88,4 @@ const ContractsTableEditItemView = ({
   );
 };
 
-export default ContractsTableEditItemView;
+export default EditContractView;

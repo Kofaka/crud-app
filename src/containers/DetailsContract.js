@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import ContractsTableItemDetailsView from '../components/ContractsTableItemDetailsView';
+import DetailsContractView from '../components/DetailsContractView';
 
-class ContractsTableItemDetails extends Component {
+class DetailsContract extends Component {
   state = {
     modal: false,
     backdrop: true
@@ -16,7 +16,7 @@ class ContractsTableItemDetails extends Component {
 
   render() {
     return (
-      <ContractsTableItemDetailsView
+      <DetailsContractView
         contract={this.props.contract}
         toggle={this.toggle}
         modalIsOpen={this.state.modal}
@@ -27,4 +27,4 @@ class ContractsTableItemDetails extends Component {
   }
 }
 
-export default ContractsTableItemDetails;
+export default DetailsContract;

@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 import { setContractsUpdateEntry } from '../modules/contracts/actions';
 
-import ContractsTableEditItemView from '../components/ContractsTableEditItemView';
+import EditContractView from '../components/EditContractView';
 
-export class ContractsTableEditItem extends Component {
+export class EditContract extends Component {
   state = {
     id: '',
     name: '',
@@ -78,7 +78,7 @@ export class ContractsTableEditItem extends Component {
     const { id, name, surname, amountInUsd, currency, date } = this.state;
     const data = { id, name, surname, amountInUsd, currency, date };
     return (
-      <ContractsTableEditItemView
+      <EditContractView
         data={data}
         modalIsOpen={this.state.modalIsOpen}
         toggle={this.toggleModalWindow}
@@ -95,4 +95,4 @@ export class ContractsTableEditItem extends Component {
 export default connect(
   null,
   { setContractsUpdateEntry }
-)(ContractsTableEditItem);
+)(EditContract);

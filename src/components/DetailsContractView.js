@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Row, Col } from 're
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 
-const ContractsTableItemDetailsView = ({
+const DetailsContractView = ({
   contract,
   toggle,
   modalIsOpen,
@@ -62,4 +62,4 @@ const ContractsTableItemDetailsView = ({
   return null;
 };
 
-export default ContractsTableItemDetailsView;
+export default DetailsContractView;
