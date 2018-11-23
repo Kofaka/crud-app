@@ -8,23 +8,23 @@ self.__precacheManifest = [
     "url": "/crud-app/static/js/runtime~main.b9aec097.js"
   },
   {
-    "revision": "6491731dc88e56c4c972",
-    "url": "/crud-app/static/js/main.6491731d.chunk.js"
+    "revision": "be93766335c100572367",
+    "url": "/crud-app/static/js/main.be937663.chunk.js"
   },
   {
-    "revision": "0529417f7866d5740435",
-    "url": "/crud-app/static/js/1.0529417f.chunk.js"
+    "revision": "0fad878c6198c86b3409",
+    "url": "/crud-app/static/js/1.0fad878c.chunk.js"
   },
   {
-    "revision": "6491731dc88e56c4c972",
-    "url": "/crud-app/static/css/main.1302d3dc.chunk.css"
+    "revision": "be93766335c100572367",
+    "url": "/crud-app/static/css/main.3875a20f.chunk.css"
   },
   {
-    "revision": "0529417f7866d5740435",
+    "revision": "0fad878c6198c86b3409",
     "url": "/crud-app/static/css/1.c0469159.chunk.css"
   },
   {
-    "revision": "0801b15d5a57c9695e5383894c2cb921",
+    "revision": "facb829ab66273b2525d5c7068dac5cf",
     "url": "/crud-app/index.html"
   }
 ];
