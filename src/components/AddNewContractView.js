@@ -3,7 +3,13 @@ import { Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 const AddNewContractView = ({ submitHandler, inputChangeHandler, disableSubmit }) => {
   const getFormGroup = (label, inputType, id, placeholder) => (
-    <Col md={2}>
+    <Col
+      xs={12}
+      sm={6}
+      md={6}
+      lg={2}
+      xl={2}
+    >
       <FormGroup>
         <Label for={id}>{label}</Label>
         <Input
@@ -35,7 +41,14 @@ const AddNewContractView = ({ submitHandler, inputChangeHandler, disableSubmit }
             {getFormGroup('Currency', 'text', 'currency', 'ETH')}
             {getFormGroup('Date', 'date', 'date', '2018-04-23')}
 
-            <Col md={2} className="d-flex align-items-end">
+            <Col
+              xs={12}
+              sm={12}
+              md={12}
+              lg={2}
+              xl={2}
+              className="d-flex align-items-end"
+            >
               <Button
                 color="info"
                 className="w-100 mb-3"

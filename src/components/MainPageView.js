@@ -10,19 +10,23 @@ const MainPageView = ({ chartData }) => (
   <>
   <HeaderView />
 
-  <main className="mt-4">
-    <Container>
-      <Row className="mb-4">
-        <Col>
-          <Line data={chartData}/>
-        </Col>
-      </Row>
-
-      <AddNewContract />
-
-      <ContractsTable />
-    </Container>
-  </main>
+  <Container tag="main" className="mt-4">
+    <Row className="mb-4">
+      <Col>
+        <Line data={chartData}/>
+      </Col>
+    </Row>
+    <Row className="mb-4">
+      <Col>
+        <AddNewContract />
+      </Col>
+    </Row>
+    <Row className="mb-4">
+      <Col>
+        <ContractsTable />
+      </Col>
+    </Row>
+  </Container>
   </>
 );
 
