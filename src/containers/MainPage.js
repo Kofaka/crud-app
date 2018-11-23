@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { setCoinApiRequest } from '../modules/coinApi/actions';
-import { getCoinApiData } from '../modules/selectors';
+import { getCoinApiData, getLoaderStatus } from '../modules/selectors';
 
 import MainPageView from '../components/MainPageView';
+import Loader from '../components/LoaderView';
+
 
 export class MainPage extends Component {
   componentDidMount() {
@@ -142,6 +144,7 @@ export class MainPage extends Component {
     ];
     return (
       <div>
+        {this.props.isLoading ? <Loader /> : ''}
         <MainPageView chartData={this.getChartData(mockedCoinApiData)}/>
       </div>
     );
@@ -151,6 +154,7 @@ export class MainPage extends Component {
 export default connect(
   state => ({
     coinApiData: getCoinApiData(state),
+    isLoading: getLoaderStatus(state),
   }),
   { setCoinApiRequest }
 )(MainPage);

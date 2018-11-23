@@ -1,0 +1,20 @@
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 999;
+}
+
+.loader-icon {
+  font-size: 5em;
+  color: #61dafb;
+  box-shadow: 1px 1px 40px rgba(97, 218, 251,0.5);
+  border-radius: 100%;
+}

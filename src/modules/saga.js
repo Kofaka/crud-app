@@ -7,6 +7,7 @@ import {
   contractsUpdateEntryWatcher,
 } from './contracts/saga';
 import { coinApiWatcher } from './coinApi/saga';
+import { loaderWatcher } from './loader/saga';
 
 export default function* rootSaga() {
   yield all([
@@ -15,5 +16,6 @@ export default function* rootSaga() {
     contractsDeleteEntryWatcher(),
     contractsUpdateEntryWatcher(),
     coinApiWatcher(),
+    loaderWatcher(),
   ]);
 }
