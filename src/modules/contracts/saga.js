@@ -29,11 +29,6 @@ function* requestContractsWatcher() {
   }
 }
 
-export function* contractsWatcher() {
-  yield takeEvery(setContractsRequest, requestContractsWatcher);
-}
-
-
 function* addContractsNewEntryWatcher(newEntryData = {}) {
   try {
     yield put(fetchShowLoader());
@@ -50,11 +45,6 @@ function* addContractsNewEntryWatcher(newEntryData = {}) {
     console.error(error);
   }
 }
-
-export function* contractsNewEntryWatcher() {
-  yield takeEvery(setContractsNewEntry, addContractsNewEntryWatcher);
-}
-
 
 function* deleteContractEntryWatcher(dataToDelete = '') {
   try {
@@ -73,11 +63,6 @@ function* deleteContractEntryWatcher(dataToDelete = '') {
   }
 }
 
-export function* contractsDeleteEntryWatcher() {
-  yield takeEvery(setContractsDeleteEntry, deleteContractEntryWatcher);
-}
-
-
 function* updateContractEntryWatcher(dataToUpdateEntry = {}) {
   try {
     yield put(fetchShowLoader());
@@ -95,6 +80,9 @@ function* updateContractEntryWatcher(dataToUpdateEntry = {}) {
   }
 }
 
-export function* contractsUpdateEntryWatcher() {
+export function* contractsWatcher() {
+  yield takeEvery(setContractsRequest, requestContractsWatcher);
+  yield takeEvery(setContractsNewEntry, addContractsNewEntryWatcher);
+  yield takeEvery(setContractsDeleteEntry, deleteContractEntryWatcher);
   yield takeEvery(setContractsUpdateEntry, updateContractEntryWatcher);
 }
